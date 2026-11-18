@@ -1,0 +1,1405 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chepkoilel Highland Farms & Dairy | Livestock, Fresh Milk & Authentic Mursik</title>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts: Fraunces (warm editorial serif) & Plus Jakarta Sans (clean modern sans) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            forest: {
+              50: '#f2f7f4',
+              100: '#e0ece4',
+              200: '#c2d9cb',
+              600: '#2d6a4f',
+              700: '#23533e',
+              800: '#1b4332',
+              900: '#122e22',
+            },
+            cream: {
+              50: '#fdfbf7',
+              100: '#f9f5eb',
+              200: '#f1e8d5',
+              300: '#e5d4b3',
+            },
+            gourd: {
+              400: '#b87344',
+              500: '#9c5a2e',
+              600: '#7f4520',
+              700: '#633417',
+              800: '#4a2510',
+            },
+            yolk: {
+              400: '#f6bd41',
+              500: '#e69d19',
+              600: '#c47f0d',
+            }
+          },
+          fontFamily: {
+            serif: ['Fraunces', 'Georgia', 'serif'],
+            sans: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-cream-50 text-stone-800 font-sans antialiased selection:bg-forest-800 selection:text-cream-50 overflow-x-hidden">
+
+  <!-- Top Heritage Announcement Bar -->
+  <div class="bg-forest-900 text-cream-100 text-xs sm:text-sm py-2.5 px-4 text-center border-b border-forest-800">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-1">
+      <p class="flex items-center justify-center gap-2">
+        <span class="inline-block w-2 h-2 rounded-full bg-yolk-400 animate-pulse"></span>
+        <span>Fresh morning milking dispatched daily at 6:00 AM • Authentic <em>Sotet</em>-cured Mursik in stock</span>
+      </p>
+      <div class="flex items-center gap-4 text-cream-200 text-xs">
+        <span><i class="fa-solid fa-location-dot text-yolk-400 mr-1"></i> Eldoret & Rift Valley Highlands</span>
+        <span>•</span>
+        <button onclick="openBookingModal('General Farm Visit')" class="underline hover:text-yolk-400 transition cursor-pointer">Book Farm Inspection</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sticky Navigation Header -->
+  <header class="sticky top-0 z-40 bg-cream-50/95 backdrop-blur-md border-b border-cream-200 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 sm:h-20 flex items-center justify-between gap-4">
+      
+      <!-- Brand Logo -->
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="w-11 h-11 rounded-2xl bg-forest-800 text-cream-50 flex items-center justify-center shadow-md group-hover:bg-gourd-600 transition-colors">
+          <!-- Custom SVG Sotet Gourd & Leaf Emblem -->
+          <svg class="w-6 h-6 text-yolk-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2C10.5 2 9.5 3 9.5 4.5C9.5 5.5 10 6.5 9 8C7.5 10 6 12 6 15.5C6 19.5 8.5 22 12 22C15.5 22 18 19.5 18 15.5C18 12 16.5 10 15 8C14 6.5 14.5 5.5 14.5 4.5C14.5 3 13.5 2 12 2Z" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M9.5 6.5H14.5" stroke-linecap="round"/>
+            <path d="M8 14.5C9.5 15.5 14.5 15.5 16 14.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div>
+          <span class="font-serif font-bold text-lg sm:text-xl text-forest-900 tracking-tight block leading-none">Chepkoilel</span>
+          <span class="text-[11px] uppercase tracking-widest text-gourd-600 font-semibold">Highland Farms & Dairy</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden lg:flex items-center gap-7 text-sm font-medium text-stone-700">
+        <a href="#catalog" onclick="filterCategory('all')" class="hover:text-forest-800 transition">All Produce</a>
+        <a href="#catalog" onclick="filterCategory('cows')" class="hover:text-forest-800 transition">Dairy Cows</a>
+        <a href="#catalog" onclick="filterCategory('chicken')" class="hover:text-forest-800 transition">Poultry</a>
+        <a href="#catalog" onclick="filterCategory('eggs')" class="hover:text-forest-800 transition">Farm Eggs</a>
+        <a href="#catalog" onclick="filterCategory('milk')" class="hover:text-forest-800 transition">Fresh Milk</a>
+        <a href="#mursik-heritage" class="text-gourd-600 font-semibold hover:text-gourd-700 transition flex items-center gap-1.5">
+          <i class="fa-solid fa-fire-flame-curved text-xs"></i> Kalenjin Mursik
+        </a>
+      </nav>
+
+      <!-- Right Controls: Currency Switcher, Farm Visit, Cart -->
+      <div class="flex items-center gap-2 sm:gap-3">
+        <!-- Currency Toggle -->
+        <button id="currencyToggleBtn" onclick="toggleCurrency()" title="Switch Currency (KES / USD)" class="px-3 py-2 rounded-xl bg-cream-100 hover:bg-cream-200 border border-cream-300 text-xs font-bold text-forest-900 flex items-center gap-1.5 transition cursor-pointer">
+          <i class="fa-solid fa-coins text-yolk-600"></i>
+          <span id="currencyLabel">KES</span>
+        </button>
+
+        <!-- Book Livestock Visit Button (Desktop) -->
+        <button onclick="openBookingModal('Dairy Cow / Bulk Poultry Inspection')" class="hidden md:flex items-center gap-2 px-4 py-2.5 rounded-xl border border-forest-800 text-forest-800 hover:bg-forest-800 hover:text-cream-50 text-xs font-semibold transition cursor-pointer">
+          <i class="fa-regular fa-calendar-check"></i>
+          <span>Inspect Livestock</span>
+        </button>
+
+        <!-- Shopping Cart Trigger -->
+        <button onclick="toggleCartDrawer(true)" class="relative flex items-center gap-2.5 bg-forest-800 hover:bg-forest-900 text-cream-50 px-3.5 sm:px-4 py-2.5 rounded-xl shadow-sm transition cursor-pointer">
+          <i class="fa-solid fa-basket-shopping text-yolk-400"></i>
+          <span class="text-xs sm:text-sm font-semibold hidden sm:inline">Basket</span>
+          <span id="cartCountBadge" class="bg-yolk-400 text-forest-900 text-xs font-bold px-2 py-0.5 rounded-full min-w-[22px] text-center">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="relative overflow-hidden bg-forest-900 text-cream-50">
+    <!-- Subtle Agricultural Pattern Overlay -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: radial-gradient(#f6bd41 1px, transparent 1px); background-size: 28px 28px;"></div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20 lg:py-24 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+        
+        <!-- Left Content -->
+        <div class="lg:col-span-7 space-y-6">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-forest-800/90 border border-forest-600 text-yolk-400 text-xs font-semibold tracking-wide uppercase">
+            <i class="fa-solid fa-seedling"></i>
+            <span>Rift Valley Pasture-Raised & Artisanal Dairy</span>
+          </div>
+          
+          <h1 class="font-serif text-3xl sm:text-5xl lg:text-6xl font-bold leading-tight text-cream-50">
+            Pure Highland Livestock, Golden Eggs &amp; <span class="text-yolk-400 italic">Authentic Mursik.</span>
+          </h1>
+          
+          <p class="text-cream-200 text-base sm:text-lg max-w-2xl leading-relaxed">
+            From pedigree Friesian &amp; Sahiwal dairy cattle and hardy Kienyeji poultry to chilled morning milk and traditional Kalenjin fermented milk cured in <em>Senetwet</em>-charcoal <em>Sotet</em> gourds.
+          </p>
+
+          <!-- Primary Hero CTAs -->
+          <div class="flex flex-wrap items-center gap-3.5 pt-2">
+            <a href="#catalog" class="px-6 py-3.5 rounded-2xl bg-yolk-400 hover:bg-yolk-500 text-forest-950 font-bold text-sm sm:text-base shadow-lg shadow-black/20 transition flex items-center gap-2">
+              <span>Explore Farm Store</span>
+              <i class="fa-solid fa-arrow-down"></i>
+            </a>
+            <a href="#mursik-heritage" class="px-6 py-3.5 rounded-2xl bg-gourd-600 hover:bg-gourd-500 text-cream-50 font-semibold text-sm sm:text-base border border-gourd-400/40 transition flex items-center gap-2">
+              <i class="fa-solid fa-jug-detergent"></i>
+              <span>Discover Kalenjin Mursik</span>
+            </a>
+          </div>
+
+          <!-- Trust Metrics -->
+          <div class="grid grid-cols-3 gap-4 pt-6 border-t border-forest-800 max-w-xl">
+            <div>
+              <p class="font-serif text-xl sm:text-2xl font-bold text-yolk-400">100% Vet-Certified</p>
+              <p class="text-xs text-cream-200 mt-0.5">Pedigree Cows &amp; Vaccinated Chicks</p>
+            </div>
+            <div>
+              <p class="font-serif text-xl sm:text-2xl font-bold text-yolk-400">4°C Cold-Chain</p>
+              <p class="text-xs text-cream-200 mt-0.5">Raw Milk &amp; Mursik Delivery</p>
+            </div>
+            <div>
+              <p class="font-serif text-xl sm:text-2xl font-bold text-yolk-400">48-Hr Sotet Cure</p>
+              <p class="text-xs text-cream-200 mt-0.5">Smoked <em>Senetwet</em> Gourd Craft</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Visual Showcase Card -->
+        <div class="lg:col-span-5">
+          <div class="relative rounded-3xl overflow-hidden bg-forest-800 border border-forest-700 shadow-2xl">
+            <img 
+              src="https://images.unsplash.com/photo-1500595046743-cd271d694d30?auto=format&fit=crop&w=900&q=80" 
+              onerror="this.onerror=null;this.src='https://placehold.co/800x650/1b4332/fdfbf7?text=Highland+Pastures+%26+Dairy';"
+              alt="Highland dairy cattle grazing on lush green pasture" 
+              class="w-full h-72 sm:h-96 object-cover object-center"
+            />
+            <div class="p-6 bg-gradient-to-t from-forest-950 via-forest-900 to-forest-900/95">
+              <div class="flex items-start justify-between gap-4">
+                <div>
+                  <span class="text-xs font-bold uppercase tracking-wider text-yolk-400">Signature Heritage Batch</span>
+                  <h3 class="font-serif text-xl font-bold text-cream-50 mt-1">Kalenjin Ceremonial Mursik</h3>
+                  <p class="text-xs text-cream-200 mt-1">Prepared with roasted <em>Senetwet</em> embers inside cured calabash gourds for rich probiotics &amp; smoky aroma.</p>
+                </div>
+                <button onclick="addToCart('mursik-gourd-2l')" class="shrink-0 px-4 py-2.5 rounded-xl bg-yolk-400 hover:bg-yolk-500 text-forest-950 font-bold text-xs transition cursor-pointer">
+                  + Order Now
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick Category Highlight Strip -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-7 relative z-20">
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4">
+      <button onclick="filterCategory('cows', true)" class="bg-white hover:bg-cream-100 border border-cream-200 rounded-2xl p-4 shadow-md flex items-center gap-3 text-left transition group cursor-pointer">
+        <div class="w-11 h-11 rounded-xl bg-forest-100 text-forest-800 flex items-center justify-center text-lg group-hover:bg-forest-800 group-hover:text-white transition">
+          <i class="fa-solid fa-cow"></i>
+        </div>
+        <div>
+          <p class="font-bold text-sm text-forest-900">Dairy Cows</p>
+          <p class="text-xs text-stone-500">4 Pedigree Breeds</p>
+        </div>
+      </button>
+
+      <button onclick="filterCategory('chicken', true)" class="bg-white hover:bg-cream-100 border border-cream-200 rounded-2xl p-4 shadow-md flex items-center gap-3 text-left transition group cursor-pointer">
+        <div class="w-11 h-11 rounded-xl bg-gourd-400/15 text-gourd-600 flex items-center justify-center text-lg group-hover:bg-gourd-600 group-hover:text-white transition">
+          <i class="fa-solid fa-feather-pointed"></i>
+        </div>
+        <div>
+          <p class="font-bold text-sm text-forest-900">Poultry &amp; Chicks</p>
+          <p class="text-xs text-stone-500">4 Hardy Varieties</p>
+        </div>
+      </button>
+
+      <button onclick="filterCategory('eggs', true)" class="bg-white hover:bg-cream-100 border border-cream-200 rounded-2xl p-4 shadow-md flex items-center gap-3 text-left transition group cursor-pointer">
+        <div class="w-11 h-11 rounded-xl bg-yolk-400/20 text-yolk-600 flex items-center justify-center text-lg group-hover:bg-yolk-500 group-hover:text-white transition">
+          <i class="fa-solid fa-egg"></i>
+        </div>
+        <div>
+          <p class="font-bold text-sm text-forest-900">Farm Eggs</p>
+          <p class="text-xs text-stone-500">Trays &amp; Crates</p>
+        </div>
+      </button>
+
+      <button onclick="filterCategory('milk', true)" class="bg-white hover:bg-cream-100 border border-cream-200 rounded-2xl p-4 shadow-md flex items-center gap-3 text-left transition group cursor-pointer">
+        <div class="w-11 h-11 rounded-xl bg-sky-100 text-sky-800 flex items-center justify-center text-lg group-hover:bg-sky-800 group-hover:text-white transition">
+          <i class="fa-solid fa-bottle-droplet"></i>
+        </div>
+        <div>
+          <p class="font-bold text-sm text-forest-900">Fresh Milk</p>
+          <p class="text-xs text-stone-500">Litres &amp; Bulk Cans</p>
+        </div>
+      </button>
+
+      <button onclick="filterCategory('mursik', true)" class="col-span-2 sm:col-span-1 bg-gourd-700 hover:bg-gourd-800 text-cream-50 border border-gourd-600 rounded-2xl p-4 shadow-md flex items-center gap-3 text-left transition group cursor-pointer">
+        <div class="w-11 h-11 rounded-xl bg-yolk-400 text-forest-950 flex items-center justify-center text-lg">
+          <i class="fa-solid fa-fire"></i>
+        </div>
+        <div>
+          <p class="font-bold text-sm text-cream-50">Kalenjin Mursik</p>
+          <p class="text-xs text-cream-200">Gourd-Cured Specialty</p>
+        </div>
+      </button>
+    </div>
+  </section>
+
+  <!-- Main Product Catalog Section -->
+  <main id="catalog" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+    
+    <!-- Section Header & Search -->
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8">
+      <div>
+        <span class="text-xs font-bold uppercase tracking-widest text-gourd-600">Direct From Our Homestead</span>
+        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-forest-900 mt-1">Farm Livestock &amp; Dairy Store</h2>
+        <p class="text-stone-600 text-sm sm:text-base mt-2 max-w-2xl">
+          Browse certified dairy heifers, pasture-raised chickens, yellow-yolk free-range eggs, raw morning milk, and traditional Kalenjin Mursik.
+        </p>
+      </div>
+
+      <!-- Search Input -->
+      <div class="relative w-full md:w-72">
+        <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-stone-400 text-sm"></i>
+        <input 
+          type="text" 
+          id="searchInput" 
+          oninput="renderProducts()"
+          placeholder="Search breeds, Mursik, eggs..." 
+          class="w-full pl-10 pr-4 py-2.5 rounded-xl bg-white border border-cream-300 text-sm focus:outline-none focus:ring-2 focus:ring-forest-700"
+        />
+      </div>
+    </div>
+
+    <!-- Category Filter Tabs -->
+    <div id="categoryTabs" class="flex items-center gap-2 overflow-x-auto pb-3 mb-8 no-scrollbar">
+      <button data-cat="all" onclick="filterCategory('all')" class="cat-tab active px-4 py-2.5 rounded-xl text-sm font-semibold whitespace-nowrap transition cursor-pointer bg-forest-800 text-cream-50 shadow-sm">
+        All Products (17)
+      </button>
+      <button data-cat="cows" onclick="filterCategory('cows')" class="cat-tab px-4 py-2.5 rounded-xl text-sm font-semibold whitespace-nowrap transition cursor-pointer bg-white text-stone-700 border border-cream-300 hover:bg-cream-100">
+        <i class="fa-solid fa-cow mr-1.5 text-forest-700"></i>Cows (4 Breeds)
+      </button>
+      <button data-cat="chicken" onclick="filterCategory('chicken')" class="cat-tab px-4 py-2.5 rounded-xl text-sm font-semibold whitespace-nowrap transition cursor-pointer bg-white text-stone-700 border border-cream-300 hover:bg-cream-100">
+        <i class="fa-solid fa-feather-pointed mr-1.5 text-gourd-600"></i>Chicken (4 Types)
+      </button>
+      <button data-cat="eggs" onclick="filterCategory('eggs')" class="cat-tab px-4 py-2.5 rounded-xl text-sm font-semibold whitespace-nowrap transition cursor-pointer bg-white text-stone-700 border border-cream-300 hover:bg-cream-100">
+        <i class="fa-solid fa-egg mr-1.5 text-yolk-600"></i>Eggs
+      </button>
+      <button data-cat="milk" onclick="filterCategory('milk')" class="cat-tab px-4 py-2.5 rounded-xl text-sm font-semibold whitespace-nowrap transition cursor-pointer bg-white text-stone-700 border border-cream-300 hover:bg-cream-100">
+        <i class="fa-solid fa-bottle-droplet mr-1.5 text-sky-700"></i>Fresh Milk
+      </button>
+      <button data-cat="mursik" onclick="filterCategory('mursik')" class="cat-tab px-4 py-2.5 rounded-xl text-sm font-semibold whitespace-nowrap transition cursor-pointer bg-white text-stone-700 border border-cream-300 hover:bg-cream-100">
+        <i class="fa-solid fa-fire mr-1.5 text-gourd-600"></i>Kalenjin Mursik
+      </button>
+    </div>
+
+    <!-- Product Grid -->
+    <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-7">
+      <!-- Dynamically populated by JavaScript -->
+    </div>
+
+    <!-- Empty Search State -->
+    <div id="emptyState" class="hidden text-center py-16 bg-white rounded-3xl border border-cream-200">
+      <div class="w-16 h-16 rounded-2xl bg-cream-100 text-gourd-600 flex items-center justify-center mx-auto text-2xl mb-4">
+        <i class="fa-solid fa-wheat-awn"></i>
+      </div>
+      <h3 class="font-serif text-xl font-bold text-forest-900">No matching livestock or dairy items</h3>
+      <p class="text-sm text-stone-500 mt-1">Try clearing your search filter or viewing all farm categories.</p>
+      <button onclick="resetFilters()" class="mt-4 px-5 py-2.5 rounded-xl bg-forest-800 text-cream-50 text-sm font-semibold cursor-pointer">
+        Show All Products
+      </button>
+    </div>
+
+  </main>
+
+  <!-- Dedicated Spotlight Section: Heritage & Craft of Kalenjin Mursik -->
+  <section id="mursik-heritage" class="bg-gourd-800 text-cream-50 py-16 sm:py-24 relative overflow-hidden">
+    <!-- Decorative Background Accent -->
+    <div class="absolute -right-24 -top-24 w-96 h-96 rounded-full bg-gourd-600/30 blur-3xl pointer-events-none"></div>
+    <div class="absolute -left-24 -bottom-24 w-96 h-96 rounded-full bg-forest-900/40 blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Left Story & Craft Breakdown -->
+        <div class="lg:col-span-7 space-y-6">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gourd-700 border border-gourd-500 text-yolk-400 text-xs font-bold uppercase tracking-wider">
+            <i class="fa-solid fa-award"></i>
+            <span>Kalenjin Cultural Heritage • Rift Valley</span>
+          </div>
+
+          <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
+            The Sacred Art of <span class="text-yolk-400 italic">Sotet</span> &amp; Charcoal-Cured Mursik
+          </h2>
+
+          <p class="text-cream-100/90 text-base sm:text-lg leading-relaxed">
+            In Kalenjin tradition, <strong>Mursik</strong> is far more than fermented milk—it is a symbol of hospitality, celebration, and athletic endurance. Crafted exclusively from rich evening milk of pasture-fed highland cows, our Mursik follows centuries-old ancestral techniques passed down by Kalenjin dairy artisans.
+          </p>
+
+          <!-- 3-Step Traditional Preparation Cards -->
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
+            <div class="bg-gourd-900/60 border border-gourd-600/60 rounded-2xl p-4">
+              <div class="w-9 h-9 rounded-xl bg-yolk-400 text-forest-950 font-bold flex items-center justify-center mb-3 text-sm">1</div>
+              <h4 class="font-serif font-bold text-base text-cream-50">Gourd Curing (Sotet)</h4>
+              <p class="text-xs text-cream-200 mt-1.5 leading-relaxed">
+                Hollowed calabash gourds are sun-dried and scrubbed clean using fibrous palm twigs (<em>Sosiot</em>) to prepare the natural vessel.
+              </p>
+            </div>
+
+            <div class="bg-gourd-900/60 border border-gourd-600/60 rounded-2xl p-4">
+              <div class="w-9 h-9 rounded-xl bg-yolk-400 text-forest-950 font-bold flex items-center justify-center mb-3 text-sm">2</div>
+              <h4 class="font-serif font-bold text-base text-cream-50">Senetwet Ash Infusion</h4>
+              <p class="text-xs text-cream-200 mt-1.5 leading-relaxed">
+                Glowing embers from the indigenous <em>Senetwet</em> (Senna didymobotrya) tree are crushed inside the gourd, imparting natural antimicrobial smoke and deep charcoal flavor.
+              </p>
+            </div>
+
+            <div class="bg-gourd-900/60 border border-gourd-600/60 rounded-2xl p-4">
+              <div class="w-9 h-9 rounded-xl bg-yolk-400 text-forest-950 font-bold flex items-center justify-center mb-3 text-sm">3</div>
+              <h4 class="font-serif font-bold text-base text-cream-50">Slow Wild Fermentation</h4>
+              <p class="text-xs text-cream-200 mt-1.5 leading-relaxed">
+                Boiled, cooled whole milk is sealed inside the smoked <em>Sotet</em> for 48–72 hours, yielding a velvety, probiotic-dense cultured delicacy.
+              </p>
+            </div>
+          </div>
+
+          <!-- Benefits & Direct Order CTA -->
+          <div class="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-gourd-600/60">
+            <div class="flex flex-wrap gap-4 text-xs font-medium text-cream-100">
+              <span class="flex items-center gap-1.5"><i class="fa-solid fa-check-circle text-yolk-400"></i> Live Gut Probiotics</span>
+              <span class="flex items-center gap-1.5"><i class="fa-solid fa-check-circle text-yolk-400"></i> Natural Charcoal Detox</span>
+              <span class="flex items-center gap-1.5"><i class="fa-solid fa-check-circle text-yolk-400"></i> Zero Artificial Starters</span>
+            </div>
+
+            <button onclick="filterCategory('mursik', true)" class="px-5 py-3 rounded-xl bg-yolk-400 hover:bg-yolk-500 text-forest-950 font-bold text-sm transition cursor-pointer">
+              Shop Mursik Sizes &amp; Gourds
+            </button>
+          </div>
+        </div>
+
+        <!-- Right Visual Card with Cultural Tasting Notes -->
+        <div class="lg:col-span-5">
+          <div class="bg-cream-50 text-stone-800 rounded-3xl p-6 sm:p-8 shadow-2xl border border-cream-200">
+            <div class="relative rounded-2xl overflow-hidden mb-6">
+              <img 
+                src="https://images.unsplash.com/photo-1550583724-b2692b85b150?auto=format&fit=crop&w=800&q=80" 
+                onerror="this.onerror=null;this.src='https://placehold.co/700x450/7f4520/fdfbf7?text=Traditional+Kalenjin+Mursik';"
+                alt="Thick creamy fermented Mursik milk" 
+                class="w-full h-56 object-cover"
+              />
+              <span class="absolute top-3 left-3 px-3 py-1 rounded-full bg-gourd-800/90 text-yolk-400 text-xs font-bold">
+                Artisanal Small Batch
+              </span>
+            </div>
+
+            <h3 class="font-serif text-2xl font-bold text-forest-900">Tasting Notes &amp; Serving</h3>
+            <p class="text-sm text-stone-600 mt-2 leading-relaxed">
+              Expect a thick, spoon-coating texture with a balanced tangy acidity, roasted wood-smoke aroma, and subtle earthy mineral notes from fine <em>Senetwet</em> ash specks. Best enjoyed chilled alongside warm brown <em>ugali</em> and roasted indigenous greens.
+            </p>
+
+            <div class="mt-5 p-4 rounded-2xl bg-cream-100 border border-cream-200 flex items-center justify-between gap-4">
+              <div>
+                <p class="text-xs font-bold uppercase text-gourd-600">Most Popular</p>
+                <p class="font-bold text-forest-900 text-sm">2L Traditional Cured Sotet Gourd</p>
+                <p class="text-xs text-stone-500">Includes reusable cured calabash gourd</p>
+              </div>
+              <button onclick="addToCart('mursik-gourd-2l')" class="px-4 py-2.5 rounded-xl bg-forest-800 hover:bg-forest-900 text-cream-50 text-xs font-bold shrink-0 cursor-pointer transition">
+                Add to Basket
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Livestock Logistics & Farm Inspection Banner -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div class="bg-forest-100/80 border border-forest-200 rounded-3xl p-8 sm:p-12 flex flex-col lg:flex-row items-center justify-between gap-8">
+      <div class="space-y-3 max-w-2xl">
+        <span class="text-xs font-bold uppercase tracking-wider text-forest-700">Live Animal Welfare &amp; Transparency</span>
+        <h3 class="font-serif text-2xl sm:text-3xl font-bold text-forest-900">Buying Dairy Heifers or Bulk Poultry?</h3>
+        <p class="text-stone-700 text-sm sm:text-base leading-relaxed">
+          We encourage livestock buyers to visit our Chepkoilel paddocks to inspect milk-yield records, vaccination certificates, and breed lineage in person—or request a live WhatsApp video walkthrough with our resident veterinary officer.
+        </p>
+      </div>
+      <div class="flex flex-wrap gap-3 shrink-0">
+        <button onclick="openBookingModal('Dairy Heifer / Cow Inspection')" class="px-6 py-3.5 rounded-2xl bg-forest-800 hover:bg-forest-900 text-cream-50 font-bold text-sm shadow-md transition cursor-pointer">
+          <i class="fa-solid fa-calendar-day mr-2 text-yolk-400"></i>Schedule Farm Visit
+        </button>
+        <button onclick="openBookingModal('Live Vet Video Walkthrough')" class="px-6 py-3.5 rounded-2xl bg-white hover:bg-cream-50 text-forest-900 border border-forest-300 font-bold text-sm transition cursor-pointer">
+          <i class="fa-solid fa-video mr-2 text-forest-700"></i>Request Video Call
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-forest-950 text-cream-200 border-t border-forest-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 pb-8 border-b border-forest-800">
+        <div class="md:col-span-2 space-y-3">
+          <div class="flex items-center gap-2.5">
+            <span class="font-serif font-bold text-xl text-cream-50">Chepkoilel Highland Farms &amp; Dairy</span>
+          </div>
+          <p class="text-sm text-cream-200/80 max-w-md leading-relaxed">
+            Dedicated to ethical highland livestock breeding, pasture-raised poultry, chilled farm milk, and preserving authentic Kalenjin <em>Sotet</em>-cured Mursik heritage.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="font-bold text-cream-50 text-sm uppercase tracking-wider mb-3">Categories</h4>
+          <ul class="space-y-2 text-sm text-cream-200/80">
+            <li><a href="#catalog" onclick="filterCategory('cows')" class="hover:text-yolk-400 transition">Pedigree Dairy Cows</a></li>
+            <li><a href="#catalog" onclick="filterCategory('chicken')" class="hover:text-yolk-400 transition">Kienyeji &amp; Hybrid Poultry</a></li>
+            <li><a href="#catalog" onclick="filterCategory('eggs')" class="hover:text-yolk-400 transition">Free-Range Farm Eggs</a></li>
+            <li><a href="#catalog" onclick="filterCategory('milk')" class="hover:text-yolk-400 transition">Raw &amp; Chilled Fresh Milk</a></li>
+            <li><a href="#catalog" onclick="filterCategory('mursik')" class="hover:text-yolk-400 transition">Traditional Kalenjin Mursik</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-bold text-cream-50 text-sm uppercase tracking-wider mb-3">Farm &amp; Dispatch</h4>
+          <ul class="space-y-2 text-sm text-cream-200/80">
+            <li><i class="fa-solid fa-location-dot text-yolk-400 mr-2"></i>Moiben Road, Eldoret, Kenya</li>
+            <li><i class="fa-solid fa-phone text-yolk-400 mr-2"></i>+254 712 489 320</li>
+            <li><i class="fa-solid fa-clock text-yolk-400 mr-2"></i>Mon–Sun: 6:00 AM – 7:00 PM</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-cream-200/60 gap-2">
+        <p>&copy; 2026 Chepkoilel Highland Farms &amp; Dairy. All rights reserved.</p>
+        <p>Vet-Certified Livestock • Cold-Chain Dairy Logistics</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================================= -->
+  <!-- INTERACTIVE SHOPPING CART DRAWER                          -->
+  <!-- ========================================================= -->
+  <div id="cartOverlay" onclick="toggleCartDrawer(false)" class="fixed inset-0 bg-black/50 backdrop-blur-xs z-50 hidden transition-opacity"></div>
+  
+  <aside id="cartDrawer" class="fixed top-0 right-0 h-full w-full sm:w-[460px] bg-cream-50 z-50 shadow-2xl transform translate-x-full transition-transform duration-300 flex flex-col border-l border-cream-200">
+    
+    <!-- Drawer Header -->
+    <div class="p-5 bg-forest-900 text-cream-50 flex items-center justify-between">
+      <div class="flex items-center gap-2.5">
+        <i class="fa-solid fa-basket-shopping text-yolk-400 text-lg"></i>
+        <div>
+          <h3 class="font-serif font-bold text-lg leading-none">Your Farm Basket</h3>
+          <p class="text-xs text-cream-200 mt-1" id="cartSubtext">0 items selected</p>
+        </div>
+      </div>
+      <button onclick="toggleCartDrawer(false)" class="w-9 h-9 rounded-xl bg-forest-800 hover:bg-forest-700 text-cream-100 flex items-center justify-center transition cursor-pointer">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <!-- Cart Body (Items + Delivery Options) -->
+    <div class="flex-1 overflow-y-auto p-5 space-y-5">
+      
+      <!-- Empty Cart View -->
+      <div id="emptyCartView" class="text-center py-12 space-y-3">
+        <div class="w-16 h-16 rounded-2xl bg-cream-200 text-gourd-600 flex items-center justify-center mx-auto text-2xl">
+          <i class="fa-solid fa-jug-detergent"></i>
+        </div>
+        <h4 class="font-serif font-bold text-lg text-forest-900">Your farm basket is empty</h4>
+        <p class="text-xs text-stone-500 max-w-xs mx-auto">
+          Add fresh milk, yellow-yolk eggs, traditional Mursik gourds, or book livestock for transport.
+        </p>
+        <button onclick="toggleCartDrawer(false)" class="mt-2 px-4 py-2 rounded-xl bg-forest-800 text-cream-50 text-xs font-bold cursor-pointer">
+          Browse Farm Store
+        </button>
+      </div>
+
+      <!-- Cart Items List -->
+      <div id="cartItemsContainer" class="space-y-3"></div>
+
+      <!-- Logistics & Delivery Selector -->
+      <div id="deliveryOptionsBox" class="hidden bg-white rounded-2xl p-4 border border-cream-200 space-y-3">
+        <label class="block text-xs font-bold uppercase tracking-wider text-forest-900">
+          <i class="fa-solid fa-truck-fast text-gourd-600 mr-1.5"></i>Fulfillment &amp; Cold-Chain Method
+        </label>
+        
+        <div class="space-y-2 text-xs">
+          <label class="flex items-start gap-3 p-3 rounded-xl border border-cream-300 cursor-pointer hover:bg-cream-50 transition">
+            <input type="radio" name="deliveryMethod" value="pickup" checked onchange="updateCartTotals()" class="mt-0.5 accent-forest-800">
+            <div class="flex-1">
+              <div class="flex justify-between font-bold text-forest-900">
+                <span>Farm Gate Pickup (Eldoret)</span>
+                <span class="text-forest-700">FREE</span>
+              </div>
+              <p class="text-stone-500 mt-0.5">Collect freshly bottled dairy or inspected livestock directly at our farm.</p>
+            </div>
+          </label>
+
+          <label class="flex items-start gap-3 p-3 rounded-xl border border-cream-300 cursor-pointer hover:bg-cream-50 transition">
+            <input type="radio" name="deliveryMethod" value="coldchain" onchange="updateCartTotals()" class="mt-0.5 accent-forest-800">
+            <div class="flex-1">
+              <div class="flex justify-between font-bold text-forest-900">
+                <span>Chilled Dairy &amp; Egg Van</span>
+                <span id="coldChainFeeLabel">KES 350</span>
+              </div>
+              <p class="text-stone-500 mt-0.5">4°C insulated delivery for Milk, Mursik &amp; Egg crates (Eldoret, Nakuru, Nairobi).</p>
+            </div>
+          </label>
+
+          <label class="flex items-start gap-3 p-3 rounded-xl border border-cream-300 cursor-pointer hover:bg-cream-50 transition">
+            <input type="radio" name="deliveryMethod" value="livestock" onchange="updateCartTotals()" class="mt-0.5 accent-forest-800">
+            <div class="flex-1">
+              <div class="flex justify-between font-bold text-forest-900">
+                <span>Specialized Livestock Carrier</span>
+                <span id="livestockFeeLabel">KES 3,500</span>
+              </div>
+              <p class="text-stone-500 mt-0.5">Vet-accompanied ventilated cattle &amp; poultry transport with movement permit.</p>
+            </div>
+          </label>
+        </div>
+
+        <!-- Customer Checkout Details -->
+        <div class="pt-2 border-t border-cream-200 space-y-2.5">
+          <input type="text" id="checkoutName" placeholder="Your Full Name *" class="w-full px-3.5 py-2 rounded-xl border border-cream-300 text-xs focus:outline-none focus:ring-2 focus:ring-forest-700" />
+          <input type="tel" id="checkoutPhone" placeholder="Phone / M-Pesa Number (e.g. 0712...) *" class="w-full px-3.5 py-2 rounded-xl border border-cream-300 text-xs focus:outline-none focus:ring-2 focus:ring-forest-700" />
+          <input type="text" id="checkoutLocation" placeholder="Delivery Town / Drop-off Address" class="w-full px-3.5 py-2 rounded-xl border border-cream-300 text-xs focus:outline-none focus:ring-2 focus:ring-forest-700" />
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Drawer Footer (Totals & Checkout CTA) -->
+    <div id="cartFooter" class="hidden p-5 bg-white border-t border-cream-200 space-y-3">
+      <div class="space-y-1.5 text-xs">
+        <div class="flex justify-between text-stone-600">
+          <span>Subtotal</span>
+          <span id="cartSubtotal" class="font-semibold">KES 0</span>
+        </div>
+        <div class="flex justify-between text-stone-600">
+          <span>Logistics / Cold-Chain Fee</span>
+          <span id="cartShipping" class="font-semibold">KES 0</span>
+        </div>
+        <div class="flex justify-between text-base font-bold text-forest-900 pt-2 border-t border-cream-200">
+          <span>Estimated Total</span>
+          <span id="cartGrandTotal">KES 0</span>
+        </div>
+      </div>
+
+      <button onclick="completeSimulatedCheckout()" class="w-full py-3.5 rounded-2xl bg-forest-800 hover:bg-forest-900 text-cream-50 font-bold text-sm shadow-lg transition flex items-center justify-center gap-2 cursor-pointer">
+        <i class="fa-solid fa-lock text-yolk-400"></i>
+        <span>Complete Farm Order</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- ========================================================= -->
+  <!-- LIVESTOCK INQUIRY / FARM VISIT BOOKING MODAL              -->
+  <!-- ========================================================= -->
+  <div id="bookingModal" class="fixed inset-0 bg-black/60 backdrop-blur-xs z-50 hidden items-center justify-center p-4">
+    <div class="bg-cream-50 rounded-3xl max-w-lg w-full overflow-hidden shadow-2xl border border-cream-200 animate-fadeIn">
+      <div class="p-6 bg-forest-900 text-cream-50 flex items-center justify-between">
+        <div>
+          <span class="text-[11px] font-bold uppercase tracking-wider text-yolk-400">Livestock &amp; Bulk Inquiry</span>
+          <h3 class="font-serif text-xl font-bold mt-0.5">Book Farm Inspection or Quote</h3>
+        </div>
+        <button onclick="closeBookingModal()" class="w-9 h-9 rounded-xl bg-forest-800 hover:bg-forest-700 text-cream-100 flex items-center justify-center cursor-pointer">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <form onsubmit="submitBookingForm(event)" class="p-6 space-y-4 text-sm">
+        <div>
+          <label class="block text-xs font-bold uppercase text-stone-600 mb-1">Interested Livestock / Item</label>
+          <input type="text" id="bookingSubject" required class="w-full px-4 py-2.5 rounded-xl bg-white border border-cream-300 font-semibold text-forest-900 focus:outline-none focus:ring-2 focus:ring-forest-700" />
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-bold uppercase text-stone-600 mb-1">Your Name *</label>
+            <input type="text" id="bookingName" required placeholder="e.g. Kiprop Cheruiyot" class="w-full px-4 py-2.5 rounded-xl bg-white border border-cream-300 focus:outline-none focus:ring-2 focus:ring-forest-700" />
+          </div>
+          <div>
+            <label class="block text-xs font-bold uppercase text-stone-600 mb-1">Phone / WhatsApp *</label>
+            <input type="tel" id="bookingPhone" required placeholder="+254 7XX XXX XXX" class="w-full px-4 py-2.5 rounded-xl bg-white border border-cream-300 focus:outline-none focus:ring-2 focus:ring-forest-700" />
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-bold uppercase text-stone-600 mb-1">Preferred Inspection Date</label>
+            <input type="date" id="bookingDate" required class="w-full px-4 py-2.5 rounded-xl bg-white border border-cream-300 focus:outline-none focus:ring-2 focus:ring-forest-700" />
+          </div>
+          <div>
+            <label class="block text-xs font-bold uppercase text-stone-600 mb-1">Visit Type</label>
+            <select id="bookingType" class="w-full px-4 py-2.5 rounded-xl bg-white border border-cream-300 focus:outline-none focus:ring-2 focus:ring-forest-700">
+              <option value="In-Person Farm Visit (Eldoret)">In-Person Farm Visit (Eldoret)</option>
+              <option value="Live Vet Video Inspection">Live Vet Video Inspection</option>
+              <option value="Bulk Transport & Health Cert Quote">Bulk Transport &amp; Health Cert Quote</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold uppercase text-stone-600 mb-1">Notes (Desired Quantity, Lactation Stage, etc.)</label>
+          <textarea id="bookingNotes" rows="3" placeholder="Tell us how many heifers or chicks you need, or any health record questions..." class="w-full px-4 py-2.5 rounded-xl bg-white border border-cream-300 focus:outline-none focus:ring-2 focus:ring-forest-700"></textarea>
+        </div>
+
+        <div class="pt-2 flex items-center justify-end gap-3">
+          <button type="button" onclick="closeBookingModal()" class="px-4 py-2.5 rounded-xl border border-cream-300 text-stone-700 font-semibold text-xs hover:bg-cream-100 cursor-pointer">
+            Cancel
+          </button>
+          <button type="submit" class="px-6 py-2.5 rounded-xl bg-forest-800 hover:bg-forest-900 text-cream-50 font-bold text-xs shadow-md cursor-pointer">
+            Confirm Livestock Booking
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ========================================================= -->
+  <!-- ORDER / BOOKING CONFIRMATION & TOAST MESSAGE BOX          -->
+  <!-- ========================================================= -->
+  <div id="toastNotification" class="fixed bottom-5 left-1/2 -translate-x-1/2 z-50 bg-forest-950 text-cream-50 px-5 py-3 rounded-2xl shadow-2xl border border-forest-700 flex items-center gap-3 text-xs sm:text-sm font-medium opacity-0 pointer-events-none transition-all duration-300">
+    <i class="fa-solid fa-circle-check text-yolk-400 text-base"></i>
+    <span id="toastMessage">Added to your farm basket!</span>
+  </div>
+
+  <!-- Confirmation Receipt Modal (Replaces alert()) -->
+  <div id="receiptModal" class="fixed inset-0 bg-black/60 backdrop-blur-xs z-50 hidden items-center justify-center p-4">
+    <div class="bg-cream-50 rounded-3xl max-w-md w-full p-6 sm:p-8 text-center shadow-2xl border border-cream-200 space-y-4">
+      <div class="w-16 h-16 rounded-full bg-forest-100 text-forest-800 flex items-center justify-center mx-auto text-3xl">
+        <i class="fa-solid fa-check"></i>
+      </div>
+      <h3 id="receiptTitle" class="font-serif text-2xl font-bold text-forest-900">Order Confirmed!</h3>
+      <p id="receiptBody" class="text-sm text-stone-600 leading-relaxed"></p>
+      <div id="receiptReference" class="p-3 rounded-xl bg-cream-100 border border-cream-300 font-mono text-xs font-bold text-forest-900"></div>
+      <button onclick="closeReceiptModal()" class="w-full py-3 rounded-xl bg-forest-800 hover:bg-forest-900 text-cream-50 font-bold text-sm cursor-pointer">
+        Back to Farm Store
+      </button>
+    </div>
+  </div>
+
+  <!-- ========================================================= -->
+  <!-- APPLICATION JAVASCRIPT                                    -->
+  <!-- ========================================================= -->
+  <script>
+    // Exchange Rate for Currency Toggle (1 USD = 130 KES)
+    const KES_PER_USD = 130;
+    let currentCurrency = 'KES'; // 'KES' or 'USD'
+    let activeCategory = 'all';
+
+    // Comprehensive Farm & Dairy Catalog across all 5 requested categories
+    const PRODUCTS = [
+      // 1. DIFFERENT BREEDS OF COWS
+      {
+        id: 'cow-friesian',
+        category: 'cows',
+        categoryLabel: 'Dairy Cow • Pedigree',
+        name: 'Purebred Holstein Friesian Heifer',
+        subtitle: 'High-volume commercial dairy champion (In-calf 5 months)',
+        priceKES: 145000,
+        unit: 'per heifer',
+        badge: '28–34 L / Day Yield',
+        badgeColor: 'bg-forest-800 text-cream-50',
+        isLivestock: true,
+        image: 'https://images.unsplash.com/photo-1546445317-29f4545e9d53?auto=format&fit=crop&w=800&q=80',
+        fallback: 'https://placehold.co/600x420/1b4332/fdfbf7?text=Holstein+Friesian+Cow',
+        specs: [
+          { label: 'Peak Milk Yield', value: '28–34 Litres/day' },
+          { label: 'Butterfat', value: '3.7% – 4.0%' },
+          { label: 'Age & Status', value: '22 Months • Vet Certified' }
+        ]
+      },
+      {
+        id: 'cow-ayrshire',
+        category: 'cows',
+        categoryLabel: 'Dairy Cow • Highland Adapted',
+        name: 'Pedigree Ayrshire Dairy Cow',
+        subtitle: 'Hardy red-and-white grazer prized for balanced milk solids',
+        priceKES: 125000,
+        unit: 'per cow',
+        badge: '22–26 L / Day Yield',
+        badgeColor: 'bg-gourd-600 text-cream-50',
+        isLivestock: true,
+        image: 'https://images.unsplash.com/photo-1570042225831-d98fa7577f1e?auto=format&fit=crop&w=800&q=80',
+        fallback: 'https://placehold.co/600x420/7f4520/fdfbf7?text=Ayrshire+Dairy+Cow',
+        specs: [
+          { label: 'Peak Milk Yield', value: '22–26 Litres/day' },
+          { label: 'Forage Efficiency', value: 'High Pasture Converter' },
+          { label: 'Health', value: 'ECF & FMD Vaccinated' }
+        ]
+      },
+      {
+        id: 'cow-jersey',
+        category: 'cows',
+        categoryLabel: 'Dairy Cow • Rich Cream',
+        name: 'Registered Jersey Dairy Heifer',
+        subtitle: 'Golden-fawn breed famous for ultra-creamy, high-butterfat milk',
+        priceKES: 115000,
+        unit: 'per heifer',
+        badge: '5.2% Butterfat Milk',
+        badgeColor: 'bg-yolk-500 text-forest-950',
+        isLivestock: true,
+        image: 'https://images.unsplash.com/photo-1596733430284-f7437764b1a9?auto=format&fit=crop&w=800&q=80',
+        fallback: 'https://placehold.co/600x420/c47f0d/fdfbf7?text=Jersey+Dairy+Cow',
+        specs: [
+          { label: 'Peak Milk Yield', value: '18–22 Litres/day' },
+          { label: 'Butterfat Content', value: '5.0% – 5.4% (Ideal for Mursik)' },
+          { label: 'Temperament', value: 'Docile & Heat-Tolerant' }
+        ]
+      },
+      {
+        id: 'cow-sahiwal',
+        category: 'cows',
+        categoryLabel: 'Dual-Purpose • Indigenous Zebu',
+        name: 'Pure Sahiwal Heifer / Bull',
+        subtitle: 'Tick-resistant, drought-hardy breed ideal for semi-arid & highland farms',
+        priceKES: 105000,
+        unit: 'per animal',
+        badge: 'Drought & Tick Hardy',
+        badgeColor: 'bg-gourd-700 text-cream-50',
+        isLivestock: true,
+        image: 'https://images.unsplash.com/photo-1516467508483-a7212febe31a?auto=format&fit=crop&w=800&q=80',
+        fallback: 'https://placehold.co/600x420/633417/fdfbf7?text=Sahiwal+Cattle',
+        specs: [
+          { label: 'Milk Yield', value: '12–16 Litres/day (Rich)' },
+          { label: 'Resilience', value: 'Superior Tick & Heat Resistance' },
+          { label: 'Purpose', value: 'Dairy & Breeding Stock' }
+        ]
+      },
+
+      // 2. DIFFERENT TYPES OF CHICKEN
+      {
+        id: 'chk-kienyeji',
+        category: 'chicken',
+        categoryLabel: 'Poultry • Indigenous',
+        name: 'Improved Kienyeji (KALRO Lineage)',
+        subtitle: 'Free-ranging dual-purpose birds with authentic indigenous flavor',
+        priceKES: 1100,
+        unit: 'per mature bird (4.5 mos)',
+        badge: 'Point-of-Lay / Meat',
+        badgeColor: 'bg-forest-800 text-cream-50',
+        isLivestock: false,
+        image: 'https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?auto=format&fit=crop&w=800&q=80',
+        fallback: 'https://placehold.co/600x420/1b4332/fdfbf7?text=Improved+Kienyeji+Chicken',
+        specs: [
+          { label: 'Maturity', value: '18–20 Weeks (Vaccinated)' },
+          { label: 'Egg Potential', value: '220–250 Eggs / Year' },
+          { label: 'Live Weight', value: '1.8 – 2.4 kg' }
+        ]
+      },
+      {
+        id: 'chk-kuroiler',
+        category: 'chicken',
+        categoryLabel: 'Poultry • Dual-Purpose Hybrid',
+        name: 'Kuroiler Heavy Dual-Purpose Birds',
+        subtitle: 'Fast-growing scavenging hybrid thriving on kitchen & pasture feed',
+        priceKES: 1250,
+        unit: 'per mature bird',
+        badge: 'Fast Growth • 3.2kg+',
+        badgeColor: 'bg-gourd-600 text-cream-50',
+        isLivestock: false,
+        image: 'https://images.unsplash.com/photo-1563281577-a7be47e20db9?auto=format&fit=crop&w=800&q=80',
+        fallback: 'https://placehold.co/600x420/7f4520/fdfbf7?text=Kuroiler+Poultry',
+        specs: [
+          { label: 'Purpose', value: 'Heavy Meat & Brown Eggs' },
+          { label: 'Live Weight', value: '2.8 – 3.5 kg at maturity' },
+          { label: 'Hardiness', value: 'High Disease Resistance' }
+        ]
+      },
+      {
+        id: 'chk-layers',
+        category: 'chicken',
+        categoryLabel: 'Poultry • Commercial Egg',
+        name: 'ISA Brown Point-of-Lay Pullets',
+        subtitle: '18-week fully vaccinated pullets ready to commence peak laying',
+        priceKES: 950,
+        unit: 'per pullet',
+        badge: '300+ Eggs / Year',
+        badgeColor: 'bg-yolk-500 text-forest-950',
+        isLivestock: false,
+        image: 'https://images.unsplash.com/photo-1598965402089-897ce52e8355?auto=format&fit=crop&w=800&q=80',
+        fallback: 'https://placehold.co/600x420/c47f0d/fdfbf7?text=ISA+Brown+Layers',
+        specs: [
+          { label: 'Age', value: '18 Weeks (Point of Lay)' },
+          { label: 'Laying Rate', value: '92% Peak Production' },
+          { label: 'Vaccination', value: 'Marek’s, Newcastle & Gumboro' }
+        ]
+      },
+      {
+        id: 'chk-broilers',
+        category: 'chicken',
+        categoryLabel: 'Poultry • Table Meat',
+        name: 'Cobb 500 Farm-Raised Broilers',
+        subtitle: 'Tender, plump 6-week table birds (Available live or dressed)',
+        priceKES: 650,
+        unit: 'per bird (1.8–2.1 kg)',
+        badge: '6-Week Dressed / Live',
+        badgeColor: 'bg-stone-800 text-cream-50',
+        isLivestock: false,
+        image: 'https://images.unsplash.com/photo-1516467508483-a7212febe31a?auto=format&fit=crop&w=800&q=80',
+        fallback: 'https://placehold.co/600x420/292524/fdfbf7?text=Farm+Broiler+Chicken',
+        specs: [
+          { label: 'Dressed Weight', value: '1.6 – 1.9 kg Clean' },
+          { label: 'Diet', value: 'Non-GMO Highland Maize & Soya' },
+          { label: 'Prep Option', value: 'Live or Cold-Packed Dressed' }
+        ]
+      },
+
+      // 3. FARM FRESH EGGS
+      {
+        id: 'eggs-kienyeji-tray',
+        category: 'eggs',
+        categoryLabel: 'Farm Eggs • Organic Free-Range',
+        name: 'Kienyeji Free-Range Eggs (Tray of 30)',
+        subtitle: 'Deep golden-orange yolks from pasture-foraging indigenous hens',
+        priceKES: 600,
+        unit: 'per tray (30 eggs)',
+        badge: 'Deep Golden Yolk',
+        badgeColor: 'bg-yolk-500 text-forest-950',
+        isLivestock: false,
+        image: 'https://images.unsplash.com/photo-1582722872445-44dc5f7e3c8f?auto=format&fit=crop&w=800&q=80',
+        fallback: 'https://placehold.co/600x420/e69d19/122e22?text=Kienyeji+Eggs+Tray+30',
+        specs: [
+          { label: 'Pack Size', value: '30 Large Free-Range Eggs' },
+          { label: 'Hen Diet', value: 'Pasture Greens, Insects & Grains' },
+          { label: 'Harvest', value: 'Collected Same Morning' }
+        ]
+      },
+      {
+        id: 'eggs-fertilized-tray',
+        category: 'eggs',
+        categoryLabel: 'Hatching Eggs • Fertile',
+        name: 'Fertile Kuroiler & Kienyeji Hatching Eggs',
+        subtitle: '88%+ guaranteed hatchability rate from parent breeder flocks',
+        priceKES: 900,
+        unit: 'per tray (30 fertile eggs)',
+        badge: '88%+ Hatch Rate',
+        badgeColor: 'bg-forest-800 text-cream-50',
+        isLivestock: false,
+        image: 'https://images.unsplash.com/photo-1506976785307-8732e854ad03?auto=format&fit=crop&w=800&q=80',
+        fallback: 'https://placehold.co/600x420/1b4332/fdfbf7?text=Fertile+Hatching+Eggs',
+        specs: [
+          { label: 'Rooster Ratio', value: '1:8 Breeder Ratio' },
+          { label: 'Storage', value: '16°C Humidity Controlled' },
+          { label: 'Breed Mix', value: 'Improved Kienyeji / Kuroiler' }
+        ]
+      },
+      {
+        id: 'eggs-crate-wholesale',
+        category: 'eggs',
+        categoryLabel: 'Farm Eggs • Wholesale Crate',
+        name: 'Commercial Brown Eggs (6-Tray Crate)',
+        subtitle: '180 farm-fresh large brown eggs packed in shock-safe pulp crates',
+        priceKES: 2550,
+        unit: 'per 180-egg crate',
+        badge: 'Wholesale Value',
+        badgeColor: 'bg-gourd-600 text-cream-50',
+        isLivestock: false,
+        image: 'https://images.unsplash.com/photo-1569288052389-dac9b01c9c05?auto=format&fit=crop&w=800&q=80',
+        fallback: 'https://placehold.co/600x420/7f4520/fdfbf7?text=180+Egg+Wholesale+Crate',
+        specs: [
+          { label: 'Quantity', value: '6 Trays (180 Eggs Total)' },
+          { label: 'Grade', value: 'Grade-A Large (60g+ each)' },
+          { label: 'Ideal For', value: 'Hotels, Bakeries & Households' }
+        ]
+      },
+
+      // 4. FRESH MILK
+      {
+        id: 'milk-fresh-2l',
+        category: 'milk',
+        categoryLabel: 'Fresh Milk • Chilled Whole',
+        name: 'Morning Raw Whole Milk (2L Bottle)',
+        subtitle: 'Unadulterated creamy Jersey-Friesian blend chilled to 4°C',
+        priceKES: 160,
+        unit: 'per 2-litre bottle',
+        badge: '4.5% Butterfat',
+        badgeColor: 'bg-sky-800 text-cream-50',
+        isLivestock: false,
+        image: 'https://images.unsplash.com/photo-1563636619-e9143da7973b?auto=format&fit=crop&w=800&q=80',
+        fallback: 'https://placehold.co/600x420/075985/fdfbf7?text=Fresh+Highland+Milk+2L',
+        specs: [
+          { label: 'Milking Time', value: '5:30 AM Morning Batch' },
+          { label: 'Purity', value: 'Zero Water, Zero Preservatives' },
+          { label: 'Packaging', value: 'Food-Grade Sealed Jug' }
+        ]
+      },
+      {
+        id: 'milk-bulk-can-20l',
+        category: 'milk',
+        categoryLabel: 'Fresh Milk • Bulk Aluminum Can',
+        name: '20-Litre Chilled Milk Mazzican / Can',
+        subtitle: 'Bulk raw whole milk for cafes, yogurt makers, and large families',
+        priceKES: 1450,
+        unit: 'per 20-litre batch',
+        badge: 'KES 72.5 / Litre',
+        badgeColor: 'bg-forest-800 text-cream-50',
+        isLivestock: false,
+        image: 'https://images.unsplash.com/photo-1528750997573-59b89d56f4f7?auto=format&fit=crop&w=800&q=80',
+        fallback: 'https://placehold.co/600x420/1b4332/fdfbf7?text=20L+Bulk+Fresh+Milk',
+        specs: [
+          { label: 'Volume', value: '20 Litres Pure Whole Milk' },
+          { label: 'Quality Test', value: 'Lactometer & Alcohol Tested' },
+          { label: 'Container', value: 'Returnable Hygienic Mazzican' }
+        ]
+      },
+
+      // 5. AUTHENTIC KALENJIN MURSIK
+      {
+        id: 'mursik-gourd-2l',
+        category: 'mursik',
+        categoryLabel: 'Kalenjin Heritage • Signature',
+        name: 'Authentic Mursik in Cured Sotet Gourd (2L)',
+        subtitle: 'Fermented for 72 hours inside a Senetwet-charcoal smoked calabash gourd',
+        priceKES: 1200,
+        unit: '2L filled Sotet gourd',
+        badge: 'Includes Sotet Gourd',
+        badgeColor: 'bg-gourd-700 text-yolk-400',
+        isLivestock: false,
+        image: 'https://images.unsplash.com/photo-1550583724-b2692b85b150?auto=format&fit=crop&w=800&q=80',
+        fallback: 'https://placehold.co/600x420/633417/fdfbf7?text=2L+Sotet+Gourd+Mursik',
+        specs: [
+          { label: 'Charcoal Herb', value: 'Roasted Senetwet Embers' },
+          { label: 'Fermentation', value: '72-Hour Natural Probiotic Cure' },
+          { label: 'Vessel', value: 'Hand-Cured Keepable Calabash' }
+        ]
+      },
+      {
+        id: 'mursik-bottle-1l',
+        category: 'mursik',
+        categoryLabel: 'Kalenjin Heritage • Ready-to-Pour',
+        name: 'Smoked Charcoal Mursik (1L Glass Jar)',
+        subtitle: 'Decanted directly from our master Sotet gourds—thick, tangy & smoky',
+        priceKES: 280,
+        unit: 'per 1-litre jar',
+        badge: 'Rich Probiotic Culture',
+        badgeColor: 'bg-gourd-600 text-cream-50',
+        isLivestock: false,
+        image: 'https://images.unsplash.com/photo-1571212515416-fef01fc43637?auto=format&fit=crop&w=800&q=80',
+        fallback: 'https://placehold.co/600x420/7f4520/fdfbf7?text=1L+Kalenjin+Mursik',
+        specs: [
+          { label: 'Texture', value: 'Velvety, Spoon-Thick Curd' },
+          { label: 'Flavor Profile', value: 'Smoky Senetwet & Tangy Cream' },
+          { label: 'Shelf Life', value: '14 Days Refrigerated' }
+        ]
+      },
+      {
+        id: 'mursik-ceremonial-5l',
+        category: 'mursik',
+        categoryLabel: 'Kalenjin Heritage • Celebration',
+        name: 'Ceremonial Koito / Graduation Sotet (5L)',
+        subtitle: 'Extra-large woven-strap ceremonial gourd filled with aged celebratory Mursik',
+        priceKES: 2800,
+        unit: '5L ceremonial gourd',
+        badge: 'Events & Gifting',
+        badgeColor: 'bg-yolk-500 text-forest-950',
+        isLivestock: false,
+        image: 'https://images.unsplash.com/photo-1600788886242-5c96aabe3757?auto=format&fit=crop&w=800&q=80',
+        fallback: 'https://placehold.co/600x420/4a2510/fdfbf7?text=5L+Ceremonial+Mursik+Gourd',
+        specs: [
+          { label: 'Capacity', value: '5 Litres Aged Heritage Mursik' },
+          { label: 'Craftsmanship', value: 'Leather-Strapped Sotet Vessel' },
+          { label: 'Occasion', value: 'Weddings, Homecoming & Gifts' }
+        ]
+      },
+      {
+        id: 'mursik-starter-kit',
+        category: 'mursik',
+        categoryLabel: 'Kalenjin Heritage • DIY Kit',
+        name: 'Traditional Mursik-Making Gourd & Sosiot Kit',
+        subtitle: 'Empty cured Sotet gourd, Sosiot cleaning brush & dried Senetwet sticks',
+        priceKES: 950,
+        unit: 'complete starter kit',
+        badge: 'Brew at Home',
+        badgeColor: 'bg-forest-800 text-cream-50',
+        isLivestock: false,
+        image: 'https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=800&q=80',
+        fallback: 'https://placehold.co/600x420/1b4332/fdfbf7?text=DIY+Mursik+Gourd+Kit',
+        specs: [
+          { label: 'Includes', value: '1.5L Cured Gourd + Sosiot + Senetwet' },
+          { label: 'Guide', value: 'Step-by-Step Kalenjin Recipe Card' },
+          { label: 'Durability', value: 'Lasts 5+ Years with Proper Care' }
+        ]
+      }
+    ];
+
+    // Shopping Cart State
+    let cart = [
+      { id: 'mursik-gourd-2l', qty: 1 },
+      { id: 'eggs-kienyeji-tray', qty: 1 }
+    ];
+
+    // Format price according to selected currency (KES or USD)
+    function formatPrice(amountKES) {
+      if (currentCurrency === 'KES') {
+        return 'KES ' + Math.round(amountKES).toLocaleString();
+      } else {
+        const usd = amountKES / KES_PER_USD;
+        return '$' + usd.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+      }
+    }
+
+    // Toggle between KES and USD
+    function toggleCurrency() {
+      currentCurrency = currentCurrency === 'KES' ? 'USD' : 'KES';
+      document.getElementById('currencyLabel').textContent = currentCurrency;
+      renderProducts();
+      renderCart();
+      showToast(`Prices switched to ${currentCurrency}`);
+    }
+
+    // Filter Products by Category
+    function filterCategory(category, shouldScroll = false) {
+      activeCategory = category;
+
+      // Update active tab styling
+      document.querySelectorAll('.cat-tab').forEach(btn => {
+        if (btn.dataset.cat === category) {
+          btn.className = 'cat-tab active px-4 py-2.5 rounded-xl text-sm font-semibold whitespace-nowrap transition cursor-pointer bg-forest-800 text-cream-50 shadow-sm';
+        } else {
+          btn.className = 'cat-tab px-4 py-2.5 rounded-xl text-sm font-semibold whitespace-nowrap transition cursor-pointer bg-white text-stone-700 border border-cream-300 hover:bg-cream-100';
+        }
+      });
+
+      renderProducts();
+
+      if (shouldScroll) {
+        document.getElementById('catalog').scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    function resetFilters() {
+      document.getElementById('searchInput').value = '';
+      filterCategory('all');
+    }
+
+    // Render Product Cards into Grid
+    function renderProducts() {
+      const grid = document.getElementById('productGrid');
+      const emptyState = document.getElementById('emptyState');
+      const query = document.getElementById('searchInput').value.trim().toLowerCase();
+
+      const filtered = PRODUCTS.filter(item => {
+        const matchesCat = activeCategory === 'all' || item.category === activeCategory;
+        const matchesQuery = !query || 
+          item.name.toLowerCase().includes(query) || 
+          item.subtitle.toLowerCase().includes(query) ||
+          item.categoryLabel.toLowerCase().includes(query);
+        return matchesCat && matchesQuery;
+      });
+
+      if (filtered.length === 0) {
+        grid.innerHTML = '';
+        emptyState.classList.remove('hidden');
+        return;
+      }
+
+      emptyState.classList.add('hidden');
+      grid.innerHTML = filtered.map(product => {
+        const specsHTML = product.specs.map(s => `
+          <div class="flex items-center justify-between text-xs py-1 border-b border-cream-200/80 last:border-none">
+            <span class="text-stone-500">${s.label}</span>
+            <span class="font-semibold text-stone-800">${s.value}</span>
+          </div>
+        `).join('');
+
+        // Livestock cows feature both an Inquiry/Inspect button and Add to Basket
+        const actionButtonsHTML = product.isLivestock ? `
+          <div class="grid grid-cols-2 gap-2 pt-2">
+            <button onclick="openBookingModal('${product.name.replace(/'/g, "\\'")}')" class="px-3 py-2.5 rounded-xl border border-forest-800 text-forest-800 hover:bg-forest-50 font-bold text-xs transition flex items-center justify-center gap-1.5 cursor-pointer">
+              <i class="fa-regular fa-calendar-check"></i>
+              <span>Inspect / Inquire</span>
+            </button>
+            <button onclick="addToCart('${product.id}')" class="px-3 py-2.5 rounded-xl bg-forest-800 hover:bg-forest-900 text-cream-50 font-bold text-xs transition flex items-center justify-center gap-1.5 cursor-pointer">
+              <i class="fa-solid fa-plus text-yolk-400"></i>
+              <span>Reserve Cow</span>
+            </button>
+          </div>
+        ` : `
+          <div class="pt-2">
+            <button onclick="addToCart('${product.id}')" class="w-full py-3 rounded-xl bg-forest-800 hover:bg-forest-900 text-cream-50 font-bold text-xs sm:text-sm transition flex items-center justify-center gap-2 shadow-xs cursor-pointer">
+              <i class="fa-solid fa-basket-shopping text-yolk-400"></i>
+              <span>Add to Farm Basket</span>
+            </button>
+          </div>
+        `;
+
+        return `
+          <article class="bg-white rounded-3xl border border-cream-200 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+            <div>
+              <!-- Image Container -->
+              <div class="relative h-52 overflow-hidden bg-cream-100">
+                <img 
+                  src="${product.image}" 
+                  onerror="this.onerror=null;this.src='${product.fallback}';"
+                  alt="${product.name}" 
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <span class="absolute top-3 left-3 px-3 py-1 rounded-full text-[11px] font-bold shadow-sm ${product.badgeColor}">
+                  ${product.badge}
+                </span>
+              </div>
+
+              <!-- Content -->
+              <div class="p-5 space-y-3">
+                <div>
+                  <span class="text-[11px] font-bold uppercase tracking-wider text-gourd-600">${product.categoryLabel}</span>
+                  <h3 class="font-serif text-lg sm:text-xl font-bold text-forest-900 mt-0.5 leading-snug">${product.name}</h3>
+                  <p class="text-xs text-stone-500 mt-1 leading-relaxed">${product.subtitle}</p>
+                </div>
+
+                <!-- Specifications Box -->
+                <div class="bg-cream-50 rounded-2xl p-3 border border-cream-200">
+                  ${specsHTML}
+                </div>
+              </div>
+            </div>
+
+            <!-- Pricing & Actions -->
+            <div class="px-5 pb-5 pt-1">
+              <div class="flex items-baseline justify-between mb-2">
+                <div>
+                  <span class="font-serif text-xl font-bold text-forest-900">${formatPrice(product.priceKES)}</span>
+                  <span class="text-xs text-stone-500 ml-1">${product.unit}</span>
+                </div>
+              </div>
+              ${actionButtonsHTML}
+            </div>
+          </article>
+        `;
+      }).join('');
+    }
+
+    // Add item to cart
+    function addToCart(productId) {
+      const existing = cart.find(item => item.id === productId);
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        cart.push({ id: productId, qty: 1 });
+      }
+      const prod = PRODUCTS.find(p => p.id === productId);
+      renderCart();
+      showToast(`Added "${prod.name}" to basket`);
+    }
+
+    // Update item quantity in cart
+    function updateCartQty(productId, delta) {
+      const idx = cart.findIndex(item => item.id === productId);
+      if (idx === -1) return;
+
+      cart[idx].qty += delta;
+      if (cart[idx].qty <= 0) {
+        cart.splice(idx, 1);
+      }
+      renderCart();
+    }
+
+    // Toggle Cart Drawer visibility
+    function toggleCartDrawer(open) {
+      const overlay = document.getElementById('cartOverlay');
+      const drawer = document.getElementById('cartDrawer');
+      if (open) {
+        overlay.classList.remove('hidden');
+        drawer.classList.remove('translate-x-full');
+        renderCart();
+      } else {
+        overlay.classList.add('hidden');
+        drawer.classList.add('translate-x-full');
+      }
+    }
+
+    // Render Shopping Cart Items & Logistics
+    function renderCart() {
+      const totalCount = cart.reduce((sum, item) => sum + item.qty, 0);
+      document.getElementById('cartCountBadge').textContent = totalCount;
+      document.getElementById('cartSubtext').textContent = `${totalCount} ${totalCount === 1 ? 'item' : 'items'} selected`;
+
+      const emptyView = document.getElementById('emptyCartView');
+      const itemsContainer = document.getElementById('cartItemsContainer');
+      const deliveryBox = document.getElementById('deliveryOptionsBox');
+      const cartFooter = document.getElementById('cartFooter');
+
+      // Update delivery fee labels for current currency
+      document.getElementById('coldChainFeeLabel').textContent = formatPrice(350);
+      document.getElementById('livestockFeeLabel').textContent = formatPrice(3500);
+
+      if (cart.length === 0) {
+        emptyView.classList.remove('hidden');
+        itemsContainer.innerHTML = '';
+        deliveryBox.classList.add('hidden');
+        cartFooter.classList.add('hidden');
+        return;
+      }
+
+      emptyView.classList.add('hidden');
+      deliveryBox.classList.remove('hidden');
+      cartFooter.classList.remove('hidden');
+
+      itemsContainer.innerHTML = cart.map(entry => {
+        const product = PRODUCTS.find(p => p.id === entry.id);
+        if (!product) return '';
+        return `
+          <div class="bg-white p-3.5 rounded-2xl border border-cream-200 flex items-center gap-3.5 shadow-2xs">
+            <img src="${product.image}" onerror="this.onerror=null;this.src='${product.fallback}';" alt="${product.name}" class="w-16 h-16 rounded-xl object-cover shrink-0 bg-cream-100" />
+            <div class="flex-1 min-w-0">
+              <p class="font-bold text-xs sm:text-sm text-forest-900 truncate">${product.name}</p>
+              <p class="text-[11px] text-stone-500">${formatPrice(product.priceKES)} ${product.unit}</p>
+              <div class="flex items-center justify-between mt-2">
+                <div class="inline-flex items-center rounded-lg bg-cream-100 border border-cream-300">
+                  <button onclick="updateCartQty('${product.id}', -1)" class="w-7 h-7 flex items-center justify-center text-stone-700 hover:text-forest-900 font-bold cursor-pointer">-</button>
+                  <span class="px-2.5 text-xs font-bold text-forest-900">${entry.qty}</span>
+                  <button onclick="updateCartQty('${product.id}', 1)" class="w-7 h-7 flex items-center justify-center text-stone-700 hover:text-forest-900 font-bold cursor-pointer">+</button>
+                </div>
+                <span class="font-bold text-xs sm:text-sm text-forest-900">${formatPrice(product.priceKES * entry.qty)}</span>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      updateCartTotals();
+    }
+
+    // Calculate Subtotal, Shipping, and Grand Total
+    function updateCartTotals() {
+      const subtotalKES = cart.reduce((sum, entry) => {
+        const product = PRODUCTS.find(p => p.id === entry.id);
+        return sum + (product ? product.priceKES * entry.qty : 0);
+      }, 0);
+
+      const selectedMethod = document.querySelector('input[name="deliveryMethod"]:checked')?.value || 'pickup';
+      let shippingKES = 0;
+      if (selectedMethod === 'coldchain') shippingKES = 350;
+      if (selectedMethod === 'livestock') shippingKES = 3500;
+
+      const grandTotalKES = subtotalKES + shippingKES;
+
+      document.getElementById('cartSubtotal').textContent = formatPrice(subtotalKES);
+      document.getElementById('cartShipping').textContent = shippingKES === 0 ? 'FREE' : formatPrice(shippingKES);
+      document.getElementById('cartGrandTotal').textContent = formatPrice(grandTotalKES);
+    }
+
+    // Simulated Checkout Flow (No alert() used)
+    function completeSimulatedCheckout() {
+      const name = document.getElementById('checkoutName').value.trim();
+      const phone = document.getElementById('checkoutPhone').value.trim();
+      const location = document.getElementById('checkoutLocation').value.trim() || 'Eldoret Farm Gate Pickup';
+
+      if (!name || !phone) {
+        showToast('Please enter your name and phone number to place order.');
+        return;
+      }
+
+      const methodEl = document.querySelector('input[name="deliveryMethod"]:checked');
+      const methodLabel = methodEl ? methodEl.parentElement.querySelector('span').textContent : 'Farm Gate Pickup';
+      const totalText = document.getElementById('cartGrandTotal').textContent;
+      const orderRef = 'CHF-' + Math.floor(100000 + Math.random() * 900000);
+
+      // Clear cart & close drawer
+      cart = [];
+      renderCart();
+      toggleCartDrawer(false);
+
+      // Show sleek receipt modal
+      document.getElementById('receiptTitle').textContent = 'Farm Order Received!';
+      document.getElementById('receiptBody').innerHTML = `
+        Asante, <strong>${name}</strong>! Our Chepkoilel dairy &amp; livestock dispatch team has logged your order (${totalText}) via <strong>${methodLabel}</strong> for <strong>${location}</strong>. We will send an M-Pesa prompt &amp; dispatch SMS to <strong>${phone}</strong> shortly.
+      `;
+      document.getElementById('receiptReference').textContent = `Order Reference: ${orderRef}`;
+      const receiptModal = document.getElementById('receiptModal');
+      receiptModal.classList.remove('hidden');
+      receiptModal.classList.add('flex');
+    }
+
+    // Livestock Inspection / Visit Modal Controls
+    function openBookingModal(subject) {
+      document.getElementById('bookingSubject').value = subject;
+      const tomorrow = new Date();
+      tomorrow.setDate(tomorrow.getDate() + 1);
+      document.getElementById('bookingDate').value = tomorrow.toISOString().split('T')[0];
+
+      const modal = document.getElementById('bookingModal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeBookingModal() {
+      const modal = document.getElementById('bookingModal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    function submitBookingForm(e) {
+      e.preventDefault();
+      const subject = document.getElementById('bookingSubject').value;
+      const name = document.getElementById('bookingName').value;
+      const phone = document.getElementById('bookingPhone').value;
+      const date = document.getElementById('bookingDate').value;
+      const visitType = document.getElementById('bookingType').value;
+
+      closeBookingModal();
+
+      const ref = 'VET-' + Math.floor(10000 + Math.random() * 90000);
+      document.getElementById('receiptTitle').textContent = 'Farm Inspection Booked!';
+      document.getElementById('receiptBody').innerHTML = `
+        Thank you, <strong>${name}</strong>. Your <strong>${visitType}</strong> regarding <strong>${subject}</strong> is scheduled for <strong>${date}</strong>. Our head herdsman will reach out via <strong>${phone}</strong> with paddock coordinates and health records.
+      `;
+      document.getElementById('receiptReference').textContent = `Booking ID: ${ref}`;
+
+      const receiptModal = document.getElementById('receiptModal');
+      receiptModal.classList.remove('hidden');
+      receiptModal.classList.add('flex');
+    }
+
+    function closeReceiptModal() {
+      const receiptModal = document.getElementById('receiptModal');
+      receiptModal.classList.add('hidden');
+      receiptModal.classList.remove('flex');
+    }
+
+    // Toast Notification Helper
+    let toastTimer;
+    function showToast(message) {
+      const toast = document.getElementById('toastNotification');
+      document.getElementById('toastMessage').textContent = message;
+      toast.classList.remove('opacity-0', 'translate-y-2');
+      toast.classList.add('opacity-100', 'translate-y-0');
+
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => {
+        toast.classList.add('opacity-0', 'translate-y-2');
+        toast.classList.remove('opacity-100', 'translate-y-0');
+      }, 3000);
+    }
+
+    // Initialize Store on Load
+    window.addEventListener('DOMContentLoaded', () => {
+      renderProducts();
+      renderCart();
+    });
+  </script>
+</body>
+</html>
